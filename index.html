@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="uz">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0b1220">
+  <meta name="description" content="Alkenlar mavzusi: nazariya, olinishi, reaksiyalar va testlar.">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <title>Alkenlar — Organik kimyo</title>
+  <style>
+    :root{--bg:#0b1220;--panel:#121d31;--panel2:#182740;--text:#f4f7fb;--muted:#a8b7ce;--accent:#53e0bb;--accent2:#6ba7ff;--line:#2b3b56;--good:#69e6a6;--bad:#ff8f9a}
+    *{box-sizing:border-box} body{margin:0;background:linear-gradient(160deg,#0b1220,#101d32 65%,#0b1220);color:var(--text);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;min-height:100vh}
+    header{padding:calc(20px + env(safe-area-inset-top)) 18px 18px;background:radial-gradient(ellipse at top right,#1c4860 0,transparent 55%);border-bottom:1px solid var(--line)}
+    .eyebrow{font-size:11px;letter-spacing:.18em;color:var(--accent);font-weight:800}.hero{display:flex;align-items:center;gap:14px;margin-top:8px}.logo{width:54px;height:54px;border-radius:17px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:grid;place-items:center;color:#08131e;font-weight:900;font-size:17px;box-shadow:0 8px 28px #53e0bb22}
+    h1{font-size:27px;line-height:1.1;margin:0} .subtitle{color:var(--muted);font-size:13px;margin:7px 0 0}
+    main{max-width:760px;margin:auto;padding:16px 15px 100px}.tabs{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;position:sticky;top:0;z-index:5;padding:8px 0 12px;background:#0b1220ee;backdrop-filter:blur(12px)}
+    .tab{border:1px solid var(--line);border-radius:12px;background:var(--panel);color:var(--muted);padding:10px 3px;font-size:11px;font-weight:700;cursor:pointer}.tab.active{background:var(--accent);border-color:var(--accent);color:#08131e}
+    .panel{display:none}.panel.active{display:block;animation:appear .18s ease-out}@keyframes appear{from{opacity:.45;transform:translateY(4px)}to{opacity:1;transform:none}}
+    .card{background:linear-gradient(145deg,#142139,#101a2c);border:1px solid var(--line);border-radius:18px;padding:17px;margin:8px 0 13px;box-shadow:0 8px 24px #00000014}
+    h2{font-size:20px;margin:3px 0 12px}h3{font-size:15px;margin:0 0 8px;color:#eaf2ff}.muted{color:var(--muted);line-height:1.55;font-size:14px}
+    .formula{background:#081321;border:1px solid #24425a;border-radius:14px;padding:16px;text-align:center;font-size:26px;font-weight:850;letter-spacing:.04em;color:var(--accent);margin:12px 0}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.mini{background:var(--panel2);border-radius:13px;padding:13px}.mini b{display:block;font-size:17px;margin-bottom:4px}.mini span{font-size:12px;color:var(--muted)}
+    .reaction{border-left:3px solid var(--accent);padding:10px 12px;background:#0b1728;border-radius:0 12px 12px 0;margin:10px 0;overflow-wrap:anywhere}.reaction b{color:var(--accent);display:block;margin-bottom:5px}.pill{display:inline-block;border:1px solid #34536b;color:#b9f5e4;border-radius:99px;padding:5px 9px;font-size:11px;margin:3px}
+    .btn{width:100%;border:0;border-radius:13px;padding:13px 15px;background:var(--accent);color:#08131e;font-size:14px;font-weight:850;cursor:pointer;margin-top:10px}.btn.secondary{background:#203550;color:var(--text);border:1px solid var(--line)}
+    .question{padding:15px 0;border-bottom:1px solid var(--line)}.question:last-child{border-bottom:0}.question p{font-weight:700;margin:0 0 10px;line-height:1.45}.option{display:flex;gap:9px;align-items:flex-start;background:#0b1728;border:1px solid var(--line);border-radius:11px;padding:10px;margin:7px 0;color:#dce6f4;font-size:14px}.option input{margin-top:3px;accent-color:var(--accent)}
+    #result{margin-top:12px;padding:14px;border-radius:12px;display:none;line-height:1.5}.small{font-size:12px;color:var(--muted);text-align:center;margin:18px 0}.notice{font-size:12px;color:var(--muted);border-top:1px solid var(--line);padding-top:12px;margin-top:12px}
+    @media(min-width:600px){main{padding-top:22px}.tab{font-size:13px}.grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="eyebrow">ORGANIK KIMYO • O‘QUV ILOVASI</div>
+  <div class="hero"><div class="logo">C=C</div><div><h1>Alkenlar</h1><p class="subtitle">Nazariya · Olinishi · Reaksiyalar · Test</p></div></div>
+</header>
+<main>
+  <nav class="tabs" aria-label="Bo‘limlar">
+    <button class="tab active" data-tab="home">Bosh sahifa</button>
+    <button class="tab" data-tab="theory">Nazariya</button>
+    <button class="tab" data-tab="prep">Olinishi</button>
+    <button class="tab" data-tab="reactions">Reaksiya</button>
+    <button class="tab" data-tab="quiz">Test</button>
+  </nav>
+  <section class="panel active" id="home">
+    <div class="card"><span class="pill">Mavzu 01</span><span class="pill">Organik kimyo</span><h2>Alkenlarni o‘rganishni boshlang</h2><p class="muted">Alkenlar — molekulasida uglerod atomlari orasida bitta qo‘sh bog‘ (C=C) bo‘lgan to‘yinmagan uglevodorodlar.</p><div class="formula">CₙH₂ₙ · n ≥ 2</div><p class="muted">Bu formula ochiq zanjirli, bitta qo‘sh bog‘li alkenlarga tegishli.</p><button class="btn" data-go="theory">Nazariyani o‘rganish →</button></div>
+    <div class="grid"><div class="mini"><b>Etен / Eten</b><span>C₂H₄ · eng sodda alken</span></div><div class="mini"><b>Qo‘sh bog‘</b><span>Asosiy reaksiya markazi</span></div><div class="mini"><b>Qo‘shilish</b><span>Tipik kimyoviy reaksiya</span></div><div class="mini"><b>Test</b><span>Bilimingizni tekshiring</span></div></div>
+    <div class="card"><h3>O‘rganish rejasi</h3><p class="muted">1. Umumiy formula va gomologik qatorni tushuning.<br>2. Alkenlarni olish usullarini misollar bilan ko‘ring.<br>3. Qo‘shilish reaksiyalarini takrorlang.<br>4. Testni ishlab, natijangizni tekshiring.</p></div>
+  </section>
+  <section class="panel" id="theory">
+    <div class="card"><h2>1. Umumiy tavsif</h2><p class="muted">Alkenlar (olefinlar) — ochiq uglerod zanjirida C=C qo‘sh bog‘i mavjud bo‘lgan uglevodorodlar. Bitta qo‘sh bog‘li alkenlarning umumiy formulasi CₙH₂ₙ.</p><div class="formula">C₂H₄ → C₃H₆ → C₄H₈</div><p class="muted">Gomologik qatorda keyingi a’zo oldingisidan –CH₂– guruhiga farq qiladi.</p></div>
+    <div class="card"><h2>2. Dastlabki vakillar</h2><div class="reaction"><b>Eten (etilen)</b> CH₂=CH₂ · C₂H₄</div><div class="reaction"><b>Propen</b> CH₂=CH–CH₃ · C₃H₆</div><div class="reaction"><b>But-1-en</b> CH₂=CH–CH₂–CH₃ · C₄H₈</div><div class="reaction"><b>But-2-en</b> CH₃–CH=CH–CH₃ · C₄H₈</div></div>
+    <div class="card"><h2>3. Fizik xossalari</h2><p class="muted">Quyi alkenlar odatda gaz, o‘rta vakillari suyuqlik, yuqori molekulyar vakillari qattiq modda bo‘lishi mumkin. Alkenlar suvda yomon, ko‘plab organik erituvchilarda yaxshiroq eriydi. Yonuvchan.</p><div class="notice">Eslatma: fizik xossalar uglerod zanjiri uzunligi va tuzilishga bog‘liq.</div></div>
+  </section>
+  <section class="panel" id="prep">
+    <div class="card"><h2>Alkenlarni olish usullari</h2><p class="muted">Laboratoriya va sanoatda bir necha usullar qo‘llanadi.</p>
+      <div class="reaction"><b>1. Spirtlarni suvsizlantirish</b>CH₃–CH₂OH → CH₂=CH₂ + H₂O<br><span class="muted">Konsentrlangan H₂SO₄ va qizdirish sharoitida.</span></div>
+      <div class="reaction"><b>2. Galogenalkanlardan HX ajratish</b>CH₃–CH₂Br + KOH(spirtda) → CH₂=CH₂ + KBr + H₂O</div>
+      <div class="reaction"><b>3. Alkanlarni degidrogenlash</b>CH₃–CH₃ → CH₂=CH₂ + H₂<br><span class="muted">Yuqori harorat va mos katalizator talab etiladi.</span></div>
+      <div class="reaction"><b>4. Kreking</b>Uzun zanjirli uglevodorodlar yuqori haroratda kichikroq molekulalarga, jumladan alkenlarga parchalanishi mumkin.</div>
+    </div>
+    <div class="card"><h3>Yodda tuting</h3><p class="muted">Spirtni suvsizlantirishda sharoit muhim: ayrim sharoitlarda molekulalararo suvsizlanish natijasida oddiy efir hosil bo‘lishi mumkin.</p></div>
+  </section>
+  <section class="panel" id="reactions">
+    <div class="card"><h2>Alkenlarning kimyoviy xossalari</h2><p class="muted">C=C qo‘sh bog‘i sababli alkenlar uchun qo‘shilish reaksiyalari xos.</p>
+      <div class="reaction"><b>1. Gidrogenlash</b>CH₂=CH₂ + H₂ → CH₃–CH₃<br><span class="muted">Katalizator: Ni, Pt yoki Pd.</span></div>
+      <div class="reaction"><b>2. Galogenlash</b>CH₂=CH₂ + Br₂ → CH₂Br–CH₂Br<br><span class="muted">Bromli suv rangsizlanishi qo‘sh bog‘ uchun sifat reaksiyasi sifatida ishlatiladi.</span></div>
+      <div class="reaction"><b>3. Gidrogalogenlash</b>CH₂=CH₂ + HCl → CH₃–CH₂Cl</div>
+      <div class="reaction"><b>4. Gidratlash</b>CH₂=CH₂ + H₂O → CH₃–CH₂OH<br><span class="muted">Kislota katalizatori ishtirokida.</span></div>
+      <div class="reaction"><b>5. Polimerlanish</b>nCH₂=CH₂ → (–CH₂–CH₂–)ₙ<br><span class="muted">Mahsulot: polietilen.</span></div>
+      <div class="reaction"><b>6. Yonish</b>C₂H₄ + 3O₂ → 2CO₂ + 2H₂O</div>
+    </div>
+    <div class="card"><h2>Markovnikov qoidasi</h2><p class="muted">Nosimmetrik alkenlarga HX qo‘shilganda, odatiy sharoitda vodorod ko‘proq vodorod tutgan uglerod atomiga, X esa ko‘proq almashgan uglerodga birikadi.</p><div class="reaction"><b>Misol</b>CH₃–CH=CH₂ + HBr → CH₃–CHBr–CH₃ (asosiy mahsulot, odatiy ionli sharoit)</div></div>
+    <div class="card"><h2>Qo‘llanilishi</h2><p class="muted">Alkenlar polimerlar (masalan, polietilen va polipropilen), spirtlar va boshqa organik birikmalar ishlab chiqarishda muhim xomashyo hisoblanadi.</p></div>
+  </section>
+  <section class="panel" id="quiz">
+    <div class="card"><h2>Bilimingizni tekshiring</h2><p class="muted">Har savolda bitta javobni belgilang, so‘ng natijani hisoblang.</p>
+      <form id="quizForm">
+        <div class="question"><p>1. Bitta qo‘sh bog‘li ochiq zanjirli alkenlarning umumiy formulasi qaysi?</p><label class="option"><input type="radio" name="q1" value="a"> CₙH₂ₙ₊₂</label><label class="option"><input type="radio" name="q1" value="b"> CₙH₂ₙ</label><label class="option"><input type="radio" name="q1" value="c"> CₙH₂ₙ₋₂</label></div>
+        <div class="question"><p>2. Eng sodda alken qaysi?</p><label class="option"><input type="radio" name="q2" value="a"> Metan</label><label class="option"><input type="radio" name="q2" value="b"> Eten</label><label class="option"><input type="radio" name="q2" value="c"> Etan</label></div>
+        <div class="question"><p>3. Etenning gidrogenlanishidan nima hosil bo‘ladi?</p><label class="option"><input type="radio" name="q3" value="a"> Etan</label><label class="option"><input type="radio" name="q3" value="b"> Etanol</label><label class="option"><input type="radio" name="q3" value="c"> Etilen glikol</label></div>
+        <div class="question"><p>4. Eten brom bilan reaksiyaga kirishganda nima kuzatiladi?</p><label class="option"><input type="radio" name="q4" value="a"> Bromli suv rangsizlanadi</label><label class="option"><input type="radio" name="q4" value="b"> Hech qanday o‘zgarish bo‘lmaydi</label><label class="option"><input type="radio" name="q4" value="c"> Faqat vodorod ajraladi</label></div>
+        <div class="question"><p>5. Eten polimerlanganda qanday polimer hosil bo‘ladi?</p><label class="option"><input type="radio" name="q5" value="a"> Polistirol</label><label class="option"><input type="radio" name="q5" value="b"> Polivinilxlorid</label><label class="option"><input type="radio" name="q5" value="c"> Polietilen</label></div>
+        <button class="btn" type="submit">Natijani hisoblash</button>
+        <button class="btn secondary" type="button" id="resetQuiz">Qaytadan ishlash</button>
+      </form>
+      <div id="result" role="status" aria-live="polite"></div>
+    </div>
+  </section>
+  <p class="small">Alkenlar • Organik kimyo uchun o‘quv material</p>
+</main>
+<script>
+  const tabs = document.querySelectorAll('.tab');
+  const panels = document.querySelectorAll('.panel');
+  function showTab(id){tabs.forEach(t=>t.classList.toggle('active',t.dataset.tab===id));panels.forEach(p=>p.classList.toggle('active',p.id===id));window.scrollTo({top:0,behavior:'smooth'});}
+  tabs.forEach(t=>t.addEventListener('click',()=>showTab(t.dataset.tab)));
+  document.querySelectorAll('[data-go]').forEach(b=>b.addEventListener('click',()=>showTab(b.dataset.go)));
+  const answers={q1:'b',q2:'b',q3:'a',q4:'a',q5:'c'};
+  document.getElementById('quizForm').addEventListener('submit',e=>{
+    e.preventDefault();let score=0,answered=0;
+    Object.keys(answers).forEach(k=>{const chosen=document.querySelector('input[name="'+k+'"]:checked');if(chosen){answered++;if(chosen.value===answers[k])score++;}});
+    const r=document.getElementById('result');r.style.display='block';
+    r.style.background=score>=4?'#12372e':'#38222b';r.style.border='1px solid '+(score>=4?'#2c8b6b':'#8b4451');
+    r.innerHTML='<strong>Natija: '+score+'/5</strong><br>'+answered+' ta savolga javob berdingiz. '+(score===5?'Ajoyib! Barcha javoblar to‘g‘ri.':score>=3?'Yaxshi! Xatolarni qayta ko‘rib chiqing.':'Nazariyani yana takrorlab, qayta urinib ko‘ring.');
+  });
+  document.getElementById('resetQuiz').addEventListener('click',()=>{document.getElementById('quizForm').reset();const r=document.getElementById('result');r.style.display='none';r.innerHTML='';});
+  if('serviceWorker' in navigator && location.protocol.startsWith('http')) window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
+</script>
+</body>
+</html>
